@@ -8,6 +8,7 @@ import lombok.Data;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Entity
 @Data
 public class Job {
@@ -25,8 +26,13 @@ public class Job {
     @NotBlank
     private String maxSalary;
 
-    @OneToMany(cascade = CascadeType.ALL,  mappedBy = "job")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="departmentId")
+    private Department department;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "job") // buraya sonradan koyuldu cascade type
     private Set<Employee> employees = new HashSet<>();
+//    private Set<Employee> employees = new HashSet<>();
 
     public Job() {
     }

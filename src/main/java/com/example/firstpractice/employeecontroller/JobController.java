@@ -1,6 +1,8 @@
 package com.example.firstpractice.employeecontroller;
 
+import com.example.firstpractice.employeedomein.Department;
 import com.example.firstpractice.employeedomein.Job;
+import com.example.firstpractice.employeeservice.DepartmentService;
 import com.example.firstpractice.employeeservice.JobService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class JobController {
 	private final JobService jobService;
+	private final DepartmentService departmentService;
 
 	//Get All jobs
 	@GetMapping("/jobs")
@@ -25,7 +28,13 @@ public class JobController {
 
 	//Add job
 	@GetMapping("/addJob")
-	public String add(){
+	public String add(Model model){
+
+//		List<Department> departmentList = departmentService.findByName();
+//		model.addAttribute("departmentList", departmentList);
+
+		List<Department> departmentList = departmentService.findAll();
+		model.addAttribute("departmentList", departmentList);
 		return "job/addJob";
 	}
 
@@ -42,6 +51,13 @@ public class JobController {
 
 		Job job = jobService.findById(id);
 		model.addAttribute("edit", job);
+
+
+//		List<Department> departmentList = departmentService.findByName();
+//		model.addAttribute("departmentList", departmentList);
+
+		List<Department> departmentList = departmentService.findAll();
+		model.addAttribute("departmentList", departmentList);
 		return "job/updateJob";
 	}
 
@@ -50,12 +66,14 @@ public class JobController {
 	public String update(@PathVariable Long id,
 						 @RequestParam String  jobTitle,
 						 @RequestParam String minSalary,
-						 @RequestParam String maxSalary ){
+						 @RequestParam String maxSalary,
+						 @RequestParam Department department){
 
 		Job job = jobService.findById(id);
 		job.setJobTitle(jobTitle);
 		job.setMinSalary(minSalary);
 		job.setMaxSalary(maxSalary);
+		job.setDepartment(department);
 
 		jobService.save(job);
 		return "redirect:/jobs";

@@ -74,12 +74,12 @@
                     </div>
                 </div>
 
-<!--                <select name="employees">-->
-<!--                    <option value="">SELECT EMPLOYEE</option>-->
-<!--                    <option th:each="employee : ${employeeList}"-->
-<!--                            th:value="${employee.employeeId}"-->
-<!--                            th:text="${employee.firstName}"></option>-->
-<!--                </select>-->
+                <select name="department">
+                    <option value="">SELECT DEPARTMENT</option>
+                    <option th:each="department : ${departmentList}"
+                            th:value="${department.departmentId}"
+                            th:text="${department.departmentName}"></option>
+                </select>
 
                 <br/> <br/>
 

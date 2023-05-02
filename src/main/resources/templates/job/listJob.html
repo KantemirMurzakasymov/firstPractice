@@ -57,6 +57,7 @@
             <th scope="col">Job Title</th>
             <th scope="col">Min Salary</th>
             <th scope="colgroup">Max Salary</th>
+            <th scope="colgroup">Department</th>
             <th><i class="icon_cogs"></i>Actions</th>
         </tr>
         </thead>
@@ -66,6 +67,7 @@
             <td th:text="${job.jobTitle}"></td>
             <td th:text="${job.minSalary}"></td>
             <td th:text="${job.maxSalary}"></td>
+            <td th:text="${job.department}"></td>
             <td>
                 <div class="btn-group">
                     <a class="btn btn-primary" th:href="@{'/updateJob/'+ ${job.jobId}}">

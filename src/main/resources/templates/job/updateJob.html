@@ -76,18 +76,18 @@
                         </div>
                     </div>
 
-<!--                    <div class="form-group">-->
-<!--                        <label for="employees">Employee:</label>-->
-<!--                        <select class="control-label col-sm-4" id="employees" name="employees">-->
-<!--                            <option value="">&#45;&#45;Select Employee&#45;&#45;</option>-->
-<!--                            <option th:each="employee : ${employeeList}"-->
-<!--                                    th:value="${employee.employeeId}"-->
-<!--                                    th:selected="${employee.employeeId == employee.employee.employeeId}">-->
-<!--                                &lt;!&ndash; option görüntülenen metni buraya yerleştirin &ndash;&gt;-->
-<!--                                <span th:text="${employee.city} + ' (' + location.streetAddress + ' - ' + location.postalCode + ')'"></span>-->
-<!--                            </option>-->
-<!--                        </select>-->
-<!--                    </div>-->
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <select class="control-label col-sm-4" id="department" name="department">
+                            <option value="">--Select Department--</option>
+                            <option th:each="department : ${departmentList}"
+                                    th:value="${department.departmentId}"
+                                    th:selected="${department.departmentId == job.department.departmentId}">
+                                <!-- option görüntülenen metni buraya yerleştirin -->
+                                <span th:text="${department.departmentName}"></span>
+                            </option>
+                        </select>
+                    </div>
 
                     <br/> <br/>
 

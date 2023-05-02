@@ -96,18 +96,18 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="department">Department:</label>
-                        <select class="control-label col-sm-4" id="department" name="department">
-                            <option value="">--Select Department--</option>
-                            <option th:each="department : ${departmentList}"
-                                    th:value="${department.departmentId}"
-                                    th:selected="${department.departmentId == employee.department.departmentId}">
-                                <!-- option görüntülenen metni buraya yerleştirin -->
-                                <span th:text="${department.departmentName}"></span>
-                            </option>
-                        </select>
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <label for="department">Department:</label>-->
+<!--                        <select class="control-label col-sm-4" id="department" name="department">-->
+<!--                            <option value="">&#45;&#45;Select Department&#45;&#45;</option>-->
+<!--                            <option th:each="department : ${departmentList}"-->
+<!--                                    th:value="${department.departmentId}"-->
+<!--                                    th:selected="${department.departmentId == employee.department.departmentId}">-->
+<!--                                &lt;!&ndash; option görüntülenen metni buraya yerleştirin &ndash;&gt;-->
+<!--                                <span th:text="${department.departmentName}"></span>-->
+<!--                            </option>-->
+<!--                        </select>-->
+<!--                    </div>-->
 
                     <div class="form-group">
                         <label class="control-label col-sm-4">Date</label>

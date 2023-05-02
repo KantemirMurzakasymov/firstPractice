@@ -1,6 +1,5 @@
 package com.example.firstpractice.employeecontroller;
 
-import com.example.firstpractice.employeedomein.Department;
 import com.example.firstpractice.employeedomein.Employee;
 import com.example.firstpractice.employeeservice.DepartmentService;
 import com.example.firstpractice.employeeservice.EmployeeService;
@@ -20,8 +19,6 @@ public class EmployeeController {
 
 	private final EmployeeService employeeService;
 
-	private final DepartmentService departmentService;
-
 	private final JobService jobService;
 
 	//Get All employees
@@ -38,8 +35,8 @@ public class EmployeeController {
 		List<Job> jobList = jobService.findAll();
 		model.addAttribute("jobList", jobList);
 
-		List<Department> departmentList = departmentService.findAll();
-		model.addAttribute("departmentList", departmentList);
+//		List<Department> departmentList = departmentService.findAll();
+//		model.addAttribute("departmentList", departmentList);
 
 		return "employee/addEmployee";
 	}
@@ -61,8 +58,8 @@ public class EmployeeController {
 		List<Job> jobList = jobService.findAll();
 		model.addAttribute("jobList", jobList);
 
-		List<Department> departmentList = departmentService.findAll();
-		model.addAttribute("departmentList", departmentList);
+//		List<Department> departmentList = departmentService.findAll();
+//		model.addAttribute("departmentList", departmentList);
 
 		return "employee/updateEmployee";
 	}
@@ -75,7 +72,6 @@ public class EmployeeController {
 						 @RequestParam String email,
 						 @RequestParam String phoneNumber,
 						 @RequestParam Job job,
-						 @RequestParam Department department,
 						 @RequestParam LocalDate registerDate){
 
 		Employee employee = employeeService.findById(id);
@@ -84,7 +80,6 @@ public class EmployeeController {
 		employee.setEmail(email);
 		employee.setPhoneNumber(phoneNumber);
 		employee.setJob(job);
-		employee.setDepartment(department);
 		employee.setRegisterDate(registerDate);
 
 		employeeService.save(employee);

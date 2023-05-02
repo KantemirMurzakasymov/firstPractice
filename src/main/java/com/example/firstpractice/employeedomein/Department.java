@@ -9,6 +9,9 @@ import java.util.Set;
 
 @Entity
 @Data
+//@NamedQueries({
+//        @NamedQuery(name = "department.findByName", query = "SELECT d FROM department d")
+//})
 public class Department {
 
     @Id
@@ -23,7 +26,7 @@ public class Department {
      private Location location;      //foreignKey = @ForeignKey(foreignKeyDefinition = "location_fk")
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department") // buraya sonradan koyuldu cascade type
-    private Set<Employee> employees = new HashSet<>();
+    private Set<Job> jobs = new HashSet<>();
 
     public Department() {
     }

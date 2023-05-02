@@ -28,13 +28,13 @@ public class Employee {
     private String phoneNumber;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "jobId")
     private Job job;  // , foreignKey = @ForeignKey(foreignKeyDefinition = "job_fk")
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "departmentId")
-    private Department department; // foreignKey = @ForeignKey(foreignKeyDefinition = "department_fk")
+//
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "departmentId")
+//    private Department department; // foreignKey = @ForeignKey(foreignKeyDefinition = "department_fk")
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd ")
     private LocalDate registerDate;
@@ -43,13 +43,12 @@ public class Employee {
     }
 
     public Employee(String firstName, String lastName, String email, String phoneNumber, Job job,
-                    Department department, LocalDate registerDate) {
+                    LocalDate registerDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.job = job;
-        this.department = department;
         this.registerDate = registerDate;
     }
 

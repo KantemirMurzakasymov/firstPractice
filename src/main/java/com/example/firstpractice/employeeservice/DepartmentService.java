@@ -13,7 +13,10 @@ public class DepartmentService {
 
 	private final DepartmentRepository departmentRepository;
 
-	
+//	public List<Department> findByName(){
+//		return departmentRepository.findByName();
+//	}
+
 	//Get All Departments
 	public List<Department> findAll(){
 		return departmentRepository.findAll();
